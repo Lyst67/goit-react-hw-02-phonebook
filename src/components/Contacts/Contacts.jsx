@@ -2,7 +2,7 @@ import { nanoid } from "nanoid"
 
 export const Contacts = ({ options, title }) => {
    
-    const {contacts, name} = options
+    const {contacts} = options
     // console.log({ name })
     return (
         <>
