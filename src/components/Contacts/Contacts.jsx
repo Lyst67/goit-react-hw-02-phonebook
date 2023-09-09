@@ -1,25 +1,19 @@
 import { nanoid } from "nanoid"
+import css from './Contacts.module.css'
 
-export const Contacts = ({ options, title }) => {
-   
-    const {contacts} = options
-    // console.log({ name })
+export const Contacts = ({searching, deleteElement, options}) => {
     return (
         <>
-            <h2>{title}</h2>
-            <ul>
-                {contacts.map(contact => {
+            <ul className={css.cont_list}>
+                {searching.map(({name, number}) => {
                     return (
-                    <li key={nanoid()}>
-                         <p>{contact.name}</p>
+                    <li className={css.cont_item} key={nanoid()}>
+                            <p>{name}: {number}</p>
+                            <button className={css.cont_btn} type="button" name={name} onClick={deleteElement}>Delete</button>
                     </li>
-                
-                
                     )
                 })}
-            
             </ul>
-        </>
-       
+        </> 
     )
 }
