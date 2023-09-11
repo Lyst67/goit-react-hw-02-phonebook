@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid"
 import css from './Contacts.module.css'
 
-export const Contacts = ({searching, deleteElement, options}) => {
+export const Contacts = ({searching, deleteElement}) => {
     return (
         <>
             <ul className={css.cont_list}>
@@ -9,7 +9,8 @@ export const Contacts = ({searching, deleteElement, options}) => {
                     return (
                     <li className={css.cont_item} key={nanoid()}>
                             <p>{name}: {number}</p>
-                            <button className={css.cont_btn} type="button" name={name} onClick={deleteElement}>Delete</button>
+                            <button className={css.cont_btn} type="button"
+                                name={name} onClick={deleteElement}>Delete</button>
                     </li>
                     )
                 })}

@@ -2,6 +2,7 @@ import { Component } from "react"
 import  Form  from "./Form/Form";
 import { Contacts } from "./Contacts/Contacts";
 import { Filter } from "./Filter/Filter";
+import { nanoid } from "nanoid"
 
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
  
   formSubmitHandler = data => {
     console.log(data.name)
-    const newContacts = {...data,}
+    const newContacts = {id: nanoid(), ...data, }
     const existElem = this.state.contacts.find((elem) =>
       elem.name === newContacts.name)
     if (existElem) {
@@ -25,7 +26,7 @@ class App extends Component {
       return
     }
      this.setState((prevState) => ({
-      contacts: [newContacts, ...prevState.contacts],
+       contacts: [newContacts, ...prevState.contacts], 
 		})) 
   }
 
@@ -59,7 +60,6 @@ return contacts.filter((el) => el.name.toLowerCase().includes(filter.toLowerCase
        />
       <Contacts
         deleteElement={this.deleteElement}
-        options={this.state}
         searching={this.filterContacts()}
       />
      
